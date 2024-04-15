@@ -1,3 +1,61 @@
+:root {
+    --font-color: #1a1918;
+}
+
+body {
+    background-color: #fcf6f0;
+}
+
 .card {
     cursor: pointer;
+}
+
+#search-icon {
+    height: 20px;
+}
+
+#controls {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #fcf6f0;
+}
+
+h2 {
+    font-family: "Tenor Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 4rem;
+    color: var(--font-color);
+}
+
+a {
+    font-family: "Tenor Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2rem;
+    color: var(--font-color);
+    text-decoration: none;
+}
+
+.more-padding {
+    width: 90%;
+    margin: auto;
+}
+
+.fraunces-p {
+    font-family: "Fraunces", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1.3rem;
+    font-variation-settings: "SOFT" 0, "WONK" 0;
+}
+
+.menu-desc {
+    max-width: 85%;
+    margin-left: auto;
+}
+
+#menu {
+    border-right: 1px solid var(--font-color);
 }
