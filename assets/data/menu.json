@@ -14,7 +14,8 @@
                 "fibre": 7,
                 "protein": 10,
                 "salt": 0.5
-            }
+            },
+            "price": 100
         },
         {
             "name": "Nutty chicken satay strips",
@@ -30,7 +31,8 @@
                 "fibre": 2,
                 "protein": 41,
                 "salt": 0.7
-            }
+            },
+            "price": 240
         },
         {
             "name": "Pakora",
@@ -46,7 +48,8 @@
                 "fibre": 7,
                 "protein": 11,
                 "salt": 0.1
-            }
+            },
+            "price": 220
         },
         {
             "name": "Mini chicken fajitas",
@@ -62,7 +65,8 @@
                 "fibre": 1,
                 "protein": 3,
                 "salt": 0.1
-            }
+            },
+            "price": 150
         },
         {
             "name": "Prawn & sweetcorn fritters",
@@ -78,10 +82,11 @@
                 "fibre": 2,
                 "protein": 16,
                 "salt": 1.04
-            }
+            },
+            "price": 350
         }
     ],
-    "Lunch": [
+    "Main-Course": [
         {
             "name": "Spicy red lentil chilli with guacamole & rice",
             "description": "A hearty blend of red lentils simmered with tomatoes, onions, and a kick of spice, served with creamy guacamole and fluffy rice for a satisfying, soul-warming meal.",
@@ -96,10 +101,10 @@
                 "fibre": 16,
                 "protein": 21,
                 "salt": 0.83
-            }
+            },
+            "price": 400
         }
     ],
-    "Fish and Seafood": [],
-    "Pasta": [],
-    "Soups": []
+    "Desserts": [],
+    "Drinks": []
 }

@@ -14,28 +14,35 @@
 <body>
     <main class="container">
         <section id="header">
-            <h1>Restaurant Menu</h1>
+            <h2>Flavour Fusion Cafe</h2>
         </section>
 
         <section id="menu" class="mb-5">
             <div class="more-padding">
-                <h2 class="text-end mb-5">MENU</h2>
+                <h2 class="mb-5">MENU</h2>
                 <div id="menu-items"></div>
             </div>
         </section>
 
-        <h2 class="text-end mb-4">CONTROLS</h2>
+        <h2 class="mb-4 more-padding">CONTROLS</h2>
         <div class="sticky-top">
             <section id="controls">
                 <div class="row gx-2">
                     <div class="col-md-6">
                         <div class="dropdown" id="filter-dropdown">
-                            <button type="button" class="btn btn-light dropdown-toggle w-100 text-end" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                            <button type="button" class="btn btn-light dropdown-toggle w-100 text-end" data-bs-toggle="dropdown" data-bs-auto-close="outside">
                                 Filters
                             </button>
                             <form class="dropdown-menu dropdown-menu-end p-4" id="food-filter">
                                 <div class="mb-3" id="filter-dropdown-menu"></div>
-                                <button type="submit" class="btn btn-secondary">Search</button>
+                                <div class="row gx-1">
+                                    <div class="col">
+                                        <button type="submit" class="btn btn-secondary w-100" id="filter-search">Search</button>
+                                    </div>
+                                    <div class="col">
+                                        <button type="submit" class="btn btn-secondary w-100" id="filter-clear">Clear</button>
+                                    </div>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -43,8 +50,8 @@
                     <div class="col-md-6">
                         <form id="food-search">
                             <div class="input-group">
-                                <input type="search" class="form-control rounded" placeholder="Search" name="search"/>
-                                <button class="input-group-text border-0" id="search-addon" type="submit" name="submit">
+                                <input type="search" class="form-control" placeholder="Search" name="search">
+                                <button type="submit" class="input-group-text">
                                     <img src="./assets/svg/search-svgrepo-com.svg" alt="search-icon" id="search-icon">
                                 </button>
                             </div>
