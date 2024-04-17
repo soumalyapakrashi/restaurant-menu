@@ -106,10 +106,19 @@ input[type="search"],
     border: 1px solid var(--font-color);
 }
 
-.section-header {
+/* .section-header {
+    display: flex;
+    justify-content: space-between;
+} */
+
+.section-header-text {
     display: flex;
     gap: 20px;
 }
+
+/* .section-header > .dropdown {
+    align-self: flex-end;
+} */
 
 #filter-search {
     background-color: var(--font-color);
@@ -125,4 +134,21 @@ input[type="search"],
 
 .sort-icon {
     height: 30px;
+}
+
+.no-show {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+#brand-logo {
+    height: 150px;;
+}
+
+#header {
+    display: flex;
+    justify-content: center;
 }
