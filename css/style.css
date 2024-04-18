@@ -143,3 +143,8 @@ input[type="search"],
     display: flex;
     justify-content: center;
 }
+
+.sort-selected {
+    background-color: var(--font-color) !important;
+    color: white !important;
+}

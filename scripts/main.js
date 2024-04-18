@@ -599,8 +599,8 @@ function showFoodContent(food_menu, render_section_headers, render_section = nul
                     <img src="assets/svg/sort-by.svg" alt="Sort Button" class="sort-icon">
                 </button>
                 <ul class="dropdown-menu">
-                    <li><button class="dropdown-item sort-button-low-high" type="button" id="sort_ascending_${section}">By Price: Low to High</button></li>
-                    <li><button class="dropdown-item sort-button-high-low" type="button" id="sort_descending_${section}">By Price: High to Low</button></li>
+                    <li><button class="dropdown-item sort-button-low-high btn" type="button" id="sort_ascending_${section}">By Price: Low to High</button></li>
+                    <li><button class="dropdown-item sort-button-high-low btn" type="button" id="sort_descending_${section}">By Price: High to Low</button></li>
                 </ul>
             </div>
         </div>
@@ -740,12 +740,16 @@ function updateSelectedFiltersChips(selected_filters) {
 
 // Function sorts food items from price low to high
 function sortPriceLowToHigh(section) {
+    document.querySelector(`#sort_ascending_${section}`).classList.add('sort-selected');
+    document.querySelector(`#sort_descending_${section}`).classList.remove('sort-selected');
     staging_menu[section] = staging_menu[section].toSorted((element1, element2) => element1.price - element2.price)
     showFoodContent(staging_menu, false, section);
 }
 
 // Function sorts food items from price high to low
 function sortPriceHighToLow(section) {
+    document.querySelector(`#sort_descending_${section}`).classList.add('sort-selected');
+    document.querySelector(`#sort_ascending_${section}`).classList.remove('sort-selected');
     staging_menu[section] = staging_menu[section].toSorted((element1, element2) => element2.price - element1.price)
     showFoodContent(staging_menu, false, section);
 }
