@@ -1,6 +1,6 @@
 import { FoodCard } from "./FoodCard.js";
 
-const FOOD_SECTIONS = [ 'Starters', 'Main-Course', 'Desserts', 'Drinks' ];
+const FOOD_SECTIONS = [ 'Drinks', 'Starters', 'Main-Course', 'Desserts' ];
 const FOOD_SECTION_DESC = {
     'Starters': 'Kickstart your culinary adventure with our enticing selection of Starters. Designed to awaken your palate and whet your appetite, our Starters offer a tantalizing array of flavors and textures to delight your senses.',
     'Main-Course': 'Dive into a world of culinary excellence with our Main Course selection. Crafted with passion and precision, our Main Course offerings showcase a symphony of flavors and textures that promise to satisfy even the most discerning palate.',
