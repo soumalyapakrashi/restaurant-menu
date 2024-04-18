@@ -603,7 +603,7 @@ function showMenuItems() {
     ${FOOD_SECTIONS.map(section => {
         return `
         <div class="mb-4 row">
-            <div class="col-sm-1">
+            <div class="col-xs col-sm-2 col-md-2 col-lg-1">
                 <img src="assets/img/${section}.png" alt="${section}" class="menu-item-img">
             </div>
             <div class="col">
