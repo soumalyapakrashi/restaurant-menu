@@ -136,12 +136,26 @@ input[type="search"],
 }
 
 #brand-logo {
-    height: 150px;;
+    height: 120px;
+    mix-blend-mode: darken;
 }
 
 #header {
     display: flex;
     justify-content: center;
+    margin-top: 10px;
+}
+
+.image-col {
+    max-width: 170px;
+}
+
+#header p {
+    font-size: 1rem;
+}
+
+#header h2 {
+    font-size: 2rem;
 }
 
 .sort-selected {
