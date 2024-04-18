@@ -2,22 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- Meta tags for responsive UI support. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Import the Bootstrap 5 CSS assets. -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Import Google font assets. -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Tenor+Sans&display=swap" rel="stylesheet">
+
+    <!-- Import custom CSS assets. -->
     <link rel="stylesheet" href="./css/style.css">
+
+    <!-- Set the title of the webpage. -->
     <title>Restaurant Menu</title>
 </head>
 <body>
     <main class="container">
+        <!-- The header section of the webpage contains the logo, name and tagline of the restaurant. -->
         <section id="header">
+            <!-- We align the items in a grid so that the logo and name can be displayed as 2 -->
+            <!-- columns in a bigger screen, and as 2 rows in a smaller screen. -->
             <div class="row align-items-end mb-3 gx-5">
+                <!-- Column for showing the logo of the restaurant. -->
                 <div class="col image-col h-100">
                     <img src="assets/img/logo.jpeg" alt="Brand Logo" id="brand-logo">
                 </div>
+                <!-- Column for showing the name and tagline of the restaurant. -->
                 <div class="col">
                     <h2>Flavour Fusion Cafe</h2>
                     <p class="fraunces-p">A visual feast that embodies your passion for great food.</p>
@@ -25,22 +39,40 @@
             </div>
         </section>
 
+        <!-- This section shows the menu items. -->
         <section id="menu" class="mb-5">
             <div class="more-padding">
+                <!-- Header displays the text "MENU" -->
                 <h2 class="mb-3">MENU</h2>
+                <!-- Placeholder section which contains the menu items filled in main.js -->
                 <div id="menu-items"></div>
             </div>
         </section>
 
+        <!-- This section provides the controls for Filter and Search features. -->
         <h2 class="more-padding">CONTROLS</h2>
+        <!-- This section comes after the menu section, but as the page is scrolled above, it -->
+        <!-- is attached to the top of the page. This provides better accessibility for users as -->
+        <!-- the filter and search options are always handy and users do not need to scroll the page -->
+        <!-- towards the top to access these features. -->
         <div class="sticky-top">
             <section id="controls">
+                <!-- Again, the Filter and Search options are arranged in a grid so that they can -->
+                <!-- be displayed as 2 columns in a bigger screen and as 2 rows in a smaller screen. -->
                 <div class="row gx-2 gy-3">
                     <div class="col-md-6">
+                        <!-- The filters section is a dropdown which contains the tags by which -->
+                        <!-- filters can be set. -->
                         <div class="dropdown" id="filter-dropdown">
+                            <!-- The dropdown is triggered when this button is clicked. -->
                             <button type="button" class="btn btn-light btn-sm dropdown-toggle w-100 text-end" data-bs-toggle="dropdown" data-bs-auto-close="outside">
                                 Filters
                             </button>
+                            <!-- Within the dropdown, a form is displayed which contains a list of -->
+                            <!-- filter tags depending on the food item data present. This tag list -->
+                            <!-- is generated in main.js and is also populated from there. The list -->
+                            <!-- is implemented as checkboxes so that users can choose one or multiple -->
+                            <!-- filter options. -->
                             <form class="dropdown-menu dropdown-menu-end p-3" id="food-filter">
                                 <div class="mb-3" id="filter-dropdown-menu"></div>
                                 <div class="row gx-1">
@@ -52,6 +84,7 @@
                         </div>
                     </div>
     
+                    <!-- The search field is an input field with a submit button. -->
                     <div class="col-md-6">
                         <form id="food-search">
                             <div class="input-group input-group-sm">
@@ -63,6 +96,10 @@
                         </form>
                     </div>
                 </div>
+
+                <!-- When filters are selected from the dropdown, the selected ones are shown in -->
+                <!-- this section as badges. The badges are also populated from main.js and this part -->
+                <!-- is only the placeholder providing the style elements like margin, padding, etc. -->
                 <div class="row gx-2 mt-2">
                     <div class="col">
                         <p id="selected-filters"></p>
@@ -71,9 +108,15 @@
             </section>
         </div>
 
+        <!-- This section shows the various food items segregated by each type of course, for example, -->
+        <!-- Drinks, Starters, etc. This section is also populated from main.js -->
         <section id="food-courses"></section>
     </main>
+
+    <!-- Import the Bootstrap 5 JavaScript assets. -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- Import custom JS assets. -->
     <script type="module" src="./scripts/main.js"></script>
 </body>
 </html>

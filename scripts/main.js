@@ -1,6 +1,10 @@
 import { FoodCard } from "./FoodCard.js";
+import { menu } from "./RestaurantMenu.js";
 
+// Define the sections of food items supported.
 const FOOD_SECTIONS = [ 'Drinks', 'Starters', 'Main-Course', 'Desserts' ];
+
+// Define the descriptions for each of the above sections.
 const FOOD_SECTION_DESC = {
     'Starters': 'Kickstart your culinary adventure with our enticing selection of Starters. Designed to awaken your palate and whet your appetite, our Starters offer a tantalizing array of flavors and textures to delight your senses.',
     'Main-Course': 'Dive into a world of culinary excellence with our Main Course selection. Crafted with passion and precision, our Main Course offerings showcase a symphony of flavors and textures that promise to satisfy even the most discerning palate.',
@@ -8,496 +12,29 @@ const FOOD_SECTION_DESC = {
     'Drinks': 'Quench your thirst with our refreshing selection of beverages. From classic cocktails to artisanal mocktails, our Drinks section offers a delightful array of options to complement your dining experience.'
 }
 
-const menu = {
-    "Starters": [
-      {
-        "name": "Cauliflower & squash fritters with mint & feta dip",
-        "description": "Crispy golden fritters bursting with the flavors of roasted cauliflower and sweet squash, served with a refreshing mint & feta dip.",
-        "img": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/cauliflower-squash-fritters-with-mint-feta-dip-ba3025e.jpg?quality=90&webp=true&resize=440,400",
-        "filters": ["vegetarian", "gluten-free"],
-        "nutrition": {
-          "kcal": 358,
-          "fat": 19,
-          "saturates": 4,
-          "carbohydrates": 28,
-          "sugars": 10,
-          "fibre": 7,
-          "protein": 10,
-          "salt": 0.5
-        },
-        "price": 100
-      },
-      {
-        "name": "Nutty chicken satay strips",
-        "description": "Tender chicken strips marinated in a rich nutty sauce, grilled to perfection and served with a side of aromatic peanut sauce for dipping.",
-        "img": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/nutty-chicken-sate-strips-67269e0.jpg?quality=90&webp=true&resize=440,400",
-        "filters": [],
-        "nutrition": {
-          "kcal": 276,
-          "fat": 108,
-          "saturates": 2,
-          "carbohydrates": 3,
-          "sugars": 2,
-          "fibre": 2,
-          "protein": 41,
-          "salt": 0.7
-        },
-        "price": 240
-      },
-      {
-        "name": "Pakora",
-        "description": "A medley of vegetables dipped in a spiced chickpea batter and fried to crispy perfection, served with tangy tamarind chutney for an explosion of flavor.",
-        "img": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/pakoras-7d687b5.jpg?quality=90&webp=true&resize=440,400",
-        "filters": ["vegetarian", "gluten-free", "vegan"],
-        "nutrition": {
-          "kcal": 309,
-          "fat": 13,
-          "saturates": 1,
-          "carbohydrates": 35,
-          "sugars": 6,
-          "fibre": 7,
-          "protein": 11,
-          "salt": 0.1
-        },
-        "price": 220
-      },
-      {
-        "name": "Mini chicken fajitas",
-        "description": "Bite-sized bursts of flavor featuring succulent chicken strips cooked with colorful bell peppers and onions, served with warm tortillas and all the fixings for a customizable fiesta.",
-        "img": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/mini-chicken-fajitas-9a29b14.jpg?quality=90&webp=true&resize=440,400",
-        "filters": [],
-        "nutrition": {
-          "kcal": 41,
-          "fat": 2,
-          "saturates": 1,
-          "carbohydrates": 3,
-          "sugars": 1,
-          "fibre": 1,
-          "protein": 3,
-          "salt": 0.1
-        },
-        "price": 150
-      },
-      {
-        "name": "Prawn & sweetcorn fritters",
-        "description": "Plump prawns and sweetcorn kernels blended into a light batter, fried until golden and served with zesty lemon aioli for a delightful coastal twist.",
-        "img": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe-image-legacy-id-592475_12-5d65ea4.jpg?quality=90&webp=true&resize=440,400",
-        "filters": [],
-        "nutrition": {
-          "kcal": 399,
-          "fat": 22,
-          "saturates": 4,
-          "carbohydrates": 36,
-          "sugars": 4,
-          "fibre": 2,
-          "protein": 16,
-          "salt": 1.04
-        },
-        "price": 350
-      },
-      {
-        "name": "Versatile veg soup",
-        "description": "A basic soup recipe, served with creme fraiche and fresh herbs.",
-        "img": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe-image-legacy-id-339036_11-6679d1f.jpg?quality=90&webp=true&resize=440,400",
-        "filters": ["vegetarian"],
-        "nutrition": {
-          "kcal": 218,
-          "fat": 27,
-          "saturates": 6,
-          "carbohydrates": 32,
-          "sugars": 7,
-          "fibre": 6,
-          "protein": 5,
-          "salt": 0.9
-        },
-        "price": 250
-      },
-      {
-        "name": "Jewish chicken soup",
-        "description": "Comforting chicken soup to kick off celebrations for the Jewish festival of Passover. Take your matzo balls up a notch with punchy horseradish and dill.",
-        "img": "https://images.immediate.co.uk/production/volatile/sites/30/2022/03/Passover-chicken-soup-with-horseradish-dill-matzo-balls-6da631e.jpg?quality=90&webp=true&resize=750,681",
-        "filters": [],
-        "nutrition": {
-          "kcal": 442,
-          "fat": 22,
-          "saturates": 6,
-          "carbohydrates": 29,
-          "sugars": 7,
-          "fibre": 3,
-          "protein": 25,
-          "salt": 1.9
-        },
-        "price": 300
-      }
-    ],
-    "Main-Course": [
-      {
-        "name": "Spicy red lentil chilli with guacamole & rice",
-        "description": "A hearty blend of red lentils simmered with tomatoes, onions, and a kick of spice, served with creamy guacamole and fluffy rice for a satisfying, soul-warming meal.",
-        "img": "https://images.immediate.co.uk/production/volatile/sites/30/2022/11/Lentil-chilli-2158471.jpg?quality=90&webp=true&resize=375,341",
-        "filters": ["vegan", "vegetarian", "nut-free", "egg-free", "dairy-free"],
-        "nutrition": {
-          "kcal": 542,
-          "fat": 12,
-          "saturates": 2,
-          "carbohydrates": 79,
-          "sugars": 7,
-          "fibre": 16,
-          "protein": 21,
-          "salt": 0.83
-        },
-        "price": 400
-      },
-      {
-        "name": "Sweet potato, spinach & feta tortilla",
-        "description": "With sweet potato, spinach and feta, it’s packed with flavours.",
-        "img": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/sweet-potato-spinach-feta-tortilla-eaf219a.jpg?quality=90&webp=true&resize=375,341",
-        "filters": ["vegetarian", "gluten-free"],
-        "nutrition": {
-          "kcal": 572,
-          "fat": 25,
-          "saturates": 9,
-          "carbohydrates": 59,
-          "sugars": 31,
-          "fibre": 10,
-          "protein": 23,
-          "salt": 1.6
-        },
-        "price": 300
-      },
-      {
-        "name": "Flatbreads with brunch-style eggs",
-        "description": "Some flatbreads served alongside brunch-style eggs with cheese and tomatoes.",
-        "img": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/flatbreads-with-brunch-style-eggs-54092f0.jpg?quality=90&webp=true&resize=375,341",
-        "filters": ["vegetarian"],
-        "nutrition": {
-          "kcal": 349,
-          "fat": 21,
-          "saturates": 7,
-          "carbohydrates": 27,
-          "sugars": 1,
-          "fibre": 3,
-          "protein": 11,
-          "salt": 1.2
-        },
-        "price": 450
-      },
-      {
-        "name": "Chicken & chorizo jambalaya",
-        "description": "A healthy Cajun-inspired rice pot recipe that's bursting with spicy Spanish sausage, sweet peppers and tomatoes.",
-        "img": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe-image-legacy-id-1274503_8-05ae02b.jpg?quality=90&webp=true&resize=440,400",
-        "filters": [],
-        "nutrition": {
-          "kcal": 445,
-          "fat": 10,
-          "saturates": 3,
-          "carbohydrates": 64,
-          "sugars": 7,
-          "fibre": 2,
-          "protein": 30,
-          "salt": 1.2
-        },
-        "price": 500
-      },
-      {
-        "name": "Chicken noodle soup",
-        "description": "Mary Cadogan's aromatic broth will warm you up on a winter's evening - it contains ginger, which is particularly good for colds.",
-        "img": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe-image-legacy-id-1035613_10-0e544b7.jpg?quality=90&webp=true&resize=500,454",
-        "filters": [],
-        "nutrition": {
-          "kcal": 217,
-          "fat": 2,
-          "saturates": 0.4,
-          "carbohydrates": 26,
-          "sugars": 1,
-          "fibre": 0.6,
-          "protein": 26,
-          "salt": 2.5
-        },
-        "price": 475
-      },
-      {
-        "name": "Chicken satay salad",
-        "description": "Try this no-fuss, midweek meal that's high in protein and big on flavour. Marinate chicken breasts, then drizzle with a punchy peanut satay sauce.",
-        "img": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chicken-satay-salad-8f5b068.jpg?quality=90&webp=true&resize=440,400",
-        "filters": [],
-        "nutrition": {
-          "kcal": 353,
-          "fat": 10,
-          "saturates": 2,
-          "carbohydrates": 24,
-          "sugars": 21,
-          "fibre": 7,
-          "protein": 38,
-          "salt": 1.6
-        },
-        "price": 550
-      },
-      {
-        "name": "Panuozzo sandwich",
-        "description": "Baguettes and pesto makes these pizza-inspired sandwiches for the whole family.",
-        "img": "https://images.immediate.co.uk/production/volatile/sites/30/2022/03/Panuozzo-sandwich-4b19929.jpg?quality=90&webp=true&resize=750,681",
-        "filters": [],
-        "nutrition": {
-          "kcal": 552,
-          "fat": 25,
-          "saturates": 8,
-          "carbohydrates": 58,
-          "sugars": 1,
-          "fibre": 3,
-          "protein": 28,
-          "salt": 0.9
-        },
-        "price": 350
-      }
-    ],
-    "Desserts": [
-      {
-        "name": "Amaretti biscuits mascarpone dessert",
-        "description": "A cross between a trifle and tiramisu. Roasted apricots with orange, layered up with mascarpone and custard for an indulgent dessert.",
-        "img": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe-image-legacy-id-7683_11-89fde68.jpg?quality=90&webp=true&resize=440,400",
-        "filters": ["vegetarian"],
-        "nutrition": {
-          "kcal": 432,
-          "fat": 25,
-          "saturates": 18,
-          "carbohydrates": 48,
-          "sugars": 32,
-          "fibre": 3,
-          "protein": 5,
-          "salt": 0.34
-        },
-        "price": 350
-      },
-      {
-        "name": "Festive dessert board",
-        "description": "Mix up your festive dessert course with an all-in-one sweet feast to share, with peppermint tiffin, gingerbread-spice doughnuts, mini meringues and more.",
-        "img": "https://images.immediate.co.uk/production/volatile/sites/30/2022/11/Festive-dessert-board-d90b153.jpg?quality=90&webp=true&resize=750,681",
-        "filters": ["vegetarian"],
-        "nutrition": {
-          "kcal": 439,
-          "fat": 49,
-          "saturates": 28,
-          "carbohydrates": 108,
-          "sugars": 58,
-          "fibre": 5,
-          "protein": 12,
-          "salt": 1.3
-        },
-        "price": 400
-      },
-      {
-        "name": "Chocolate & banana cake",
-        "description": "This decadent chocolate and banana loaf cake is gorgeously moist from the fruit, whilst chocolate adds richness. Top with ganache and banana chips.",
-        "img": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe-image-legacy-id-1195519_11-c0e1fed.jpg?quality=90&webp=true&resize=440,400",
-        "filters": [],
-        "nutrition": {
-          "kcal": 502,
-          "fat": 27,
-          "saturates": 9,
-          "carbohydrates": 68,
-          "sugars": 58,
-          "fibre": 2,
-          "protein": 7,
-          "salt": 0.51
-        },
-        "price": 300
-      },
-      {
-        "name": "White chocolate berry cheesecake",
-        "description": "A stunning no-cook pudding bursting with summer flavours - great for relaxed entertaining.",
-        "img": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe-image-legacy-id-45905_12-243db72.jpg?quality=90&webp=true&resize=440,400",
-        "filters": [],
-        "nutrition": {
-          "kcal": 667,
-          "fat": 50,
-          "saturates": 29,
-          "carbohydrates": 48,
-          "sugars": 48,
-          "fibre": 2,
-          "protein": 9,
-          "salt": 1.01
-        },
-        "price": 300
-      },
-      {
-        "name": "Little lemon meringue pies",
-        "description": "These weekend puds are light and fluffy with a tangy filling.",
-        "img": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe-image-legacy-id-49476_11-67f8495.jpg?quality=90&webp=true&resize=440,400",
-        "filters": ["vegetarian"],
-        "nutrition": {
-          "kcal": 500,
-          "fat": 21,
-          "saturates": 7,
-          "carbohydrates": 71,
-          "sugars": 48,
-          "fibre": 2,
-          "protein": 11,
-          "salt": 0.53
-        },
-        "price": 250
-      },
-      {
-        "name": "Honey & vanilla madeleines",
-        "description": "Serve alongside an overflowing bowl of summer berries and you'll have the perfect summer pud.",
-        "img": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe-image-legacy-id-659575_11-3b6e64a.jpg?quality=90&webp=true&resize=440,400",
-        "filters": [],
-        "nutrition": {
-          "kcal": 138,
-          "fat": 8,
-          "saturates": 5,
-          "carbohydrates": 17,
-          "sugars": 10,
-          "fibre": 0,
-          "protein": 2,
-          "salt": 0.14
-        },
-        "price": 300
-      },
-      {
-        "name": "Black Forest sundaes with brownies",
-        "description": "Based on the seventies cake classic that is Black Forest gâteau – this cherry, ice cream and brownie desert is heavenly.",
-        "img": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe-image-legacy-id-9207_12-be86f30.jpg?quality=90&webp=true&resize=440,400",
-        "filters": [],
-        "nutrition": {
-          "kcal": 899,
-          "fat": 63,
-          "saturates": 35,
-          "carbohydrates": 74.4,
-          "sugars": 71,
-          "fibre": 1,
-          "protein": 11,
-          "salt": 0.21
-        },
-        "price": 300
-      }
-    ],
-    "Drinks": [
-      {
-        "name": "Halloween treats & drinks",
-        "description": "These spooky treats are perfect for adding a touch of fun to a Halloween party.",
-        "img": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe-image-legacy-id-59458_12-977c8a9.jpg?quality=90&webp=true&resize=440,400",
-        "filters": [],
-        "nutrition": {
-          "kcal": 108,
-          "fat": 8,
-          "saturates": 5,
-          "carbohydrates": 31,
-          "sugars": 18,
-          "fibre": 0,
-          "protein": 0,
-          "salt": 0.14
-        },
-        "price": 250
-      },
-      {
-        "name": "Elderflower champagne",
-        "description": "This delicate, floral, alcoholic drink is perfect for sipping on summer nights.",
-        "img": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/elderflower-champagne-4db9fe3.jpg?quality=90&webp=true&resize=440,400",
-        "filters": ["egg-free", "dairy-free", "gluten-free", "vegan"],
-        "nutrition": {
-          "kcal": 76,
-          "fat": 0,
-          "saturates": 0,
-          "carbohydrates": 19,
-          "sugars": 19,
-          "fibre": 0,
-          "protein": 0,
-          "salt": 0.14
-        },
-        "price": 400
-      },
-      {
-        "name": "Elderflower wine",
-        "description": "This delectable alcoholic drink is perfect for using our favourite seasonal ingredient.",
-        "img": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/elderflower-wine-cce9ae0.jpg?quality=90&webp=true&resize=440,400",
-        "filters": ["egg-free", "dairy-free", "gluten-free", "vegan"],
-        "nutrition": {
-          "kcal": 92,
-          "fat": 0,
-          "saturates": 0,
-          "carbohydrates": 23,
-          "sugars": 23,
-          "fibre": 0,
-          "protein": 0,
-          "salt": 0.14
-        },
-        "price": 400
-      },
-      {
-        "name": "Bicerin - coffee & chocolate drink",
-        "description": "This is a luxurious coffee-and-chocolate drink topped with cream that originates from a cafe in Turin where it is a closely guarded secret.",
-        "img": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe-image-legacy-id-1296_11-78475de.jpg?quality=90&webp=true&resize=440,400",
-        "filters": ["egg-free", "dairy-free", "gluten-free", "vegan"],
-        "nutrition": {
-          "kcal": 52,
-          "fat": 0,
-          "saturates": 0,
-          "carbohydrates": 27,
-          "sugars": 23,
-          "fibre": 0,
-          "protein": 0,
-          "salt": 0
-        },
-        "price": 300
-      },
-      {
-        "name": "Ginger shots",
-        "description": "Start the day with punchy, refreshing ginger juice with fresh ginger, apple and lemon.",
-        "img": "https://images.immediate.co.uk/production/volatile/sites/30/2023/03/Ginger-shots-6837ad2.jpg?quality=90&webp=true&resize=750,681",
-        "filters": ["vegetarian", "gluten-free", "vegan"],
-        "nutrition": {
-          "kcal": 30,
-          "fat": 0.1,
-          "saturates": 0,
-          "carbohydrates": 7,
-          "sugars": 6,
-          "fibre": 0.2,
-          "protein": 0.3,
-          "salt": 0.01
-        },
-        "price": 200
-      },
-      {
-        "name": "Dalgona coffee (whipped coffee)",
-        "description": "Our easy whipped coffee is simple, frothy drink, known as dalgona coffee, might just be your new favourite caffeine kick.",
-        "img": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/dalgona-coffee-ddfc357.jpg?quality=90&webp=true&resize=440,400",
-        "filters": ["vegetarian", "gluten-free", "nut-free"],
-        "nutrition": {
-          "kcal": 211,
-          "fat": 7,
-          "saturates": 5,
-          "carbohydrates": 27,
-          "sugars": 16,
-          "fibre": 0,
-          "protein": 6,
-          "salt": 0.6
-        },
-        "price": 200
-      },
-      {
-        "name": "Peanut butter smoothie",
-        "description": "Whizz up a quick and filling peanut butter smoothie, with rolled oats and banana.",
-        "img": "https://images.immediate.co.uk/production/volatile/sites/30/2021/05/Peanut-Butter-Smoothie-3430e32.jpg?quality=90&webp=true&resize=750,681",
-        "filters": ["vegetarian", "dairy-free", "egg-free", "vegan"],
-        "nutrition": {
-          "kcal": 193,
-          "fat": 7,
-          "saturates": 2,
-          "carbohydrates": 27,
-          "sugars": 16,
-          "fibre": 3,
-          "protein": 4,
-          "salt": 0.18
-        },
-        "price": 300
-      }
-    ]
-  }
-
+/*
+    Staging Menu is a variable which holds the current menu items to display after applying
+    modifiers like filter, search, and sort.
+*/
 let staging_menu = menu;
+
+// Filters contains the tags with which menu items need to be filtered. Empty if no filter is chosen.
 let filters = [];
+
+/*
+    Search string contains the string which needs to be searched among the names of food items.
+    Blank string if no input is provided.
+*/
 let search_string = '';
+
+/*
+    This sort_order variable contains data about whether the particular food section needs to be
+    sorted by food price. This variable is updated when user chooses the sort by option in the UI.
+    Each section is denoted by a key in the object. Accepted values per each section are:
+    1. none = No sort order is selected and food items are displayed in any order.
+    2. ascending = Sort from Low to High is selected and food items are sorted in order of low to high price.
+    3. descending = Sort from High to Low is selected and food items are sorted by high to low price.
+*/
 let sort_order = {
     'Drinks': 'none',
     'Starters': 'none',
@@ -505,10 +42,21 @@ let sort_order = {
     'Desserts': 'none'
 };
 
+// Display UI and attach event handlers on window load.
 window.addEventListener('load', _ => {
+    // Show the menu items.
     showMenuItems();
+    // Show the food items section. Render the entire section including headers as this is the 1st render.
     showFoodContent(menu, true);
 
+    /*
+        Each section header has a dropdown for sorting the food items in that respective section
+        by Price. Sorting is available in increasing and decreasing order of price. Each of the options
+        is a Button element, clicking which, the sort happens. In this section, we attach the event
+        handlers to those buttons in each of the food sections. For the buttons performing sort in
+        incresing order of price, we call the sortPriceLowToHigh function, and for the one performing
+        sort in decreasing order of price, we call the sortPriceHighToLow function.
+    */
     FOOD_SECTIONS.forEach(section => {
         document.querySelector(`#sort_ascending_${section}`)?.addEventListener('click', _ => {
             sortPriceLowToHigh(section);
@@ -518,21 +66,32 @@ window.addEventListener('load', _ => {
         });
     })
 
-    // Get the handler to the form for the search and call function with entered string
+    // Get the handler to the form for the search and call function with entered string.
     const search_form = document.querySelector('#food-search');
     search_form.addEventListener('submit', event => {
+        // Prevent the form from submitting and reloading the page.
         event.preventDefault();
+
+        // Set the global search string value to the input provided by user.
         search_string = event?.target?.search?.value;
+
+        // Call function to update the UI for food items section.
         updateFoodCourses();
     });
 
-    // Populate the dropdown list for filters
+    // Populate the dropdown list for filters.
     updateFilterDropdownItems();
 
-    // Setup handler for when the filter form is submitted
+    // Setup handler for when the filter form is submitted.
     const filter_form = document.querySelector('#food-filter');
     filter_form.addEventListener('submit', event => {
+        // Prevent the form from submitting and reloading the page.
         event.preventDefault();
+
+        /*
+            Extract the filters entered by user. Iterate over all the checkboxes in the dropdown
+            and add those which are checked to the filters list.
+        */
         let selected_filters = [];
         Object.keys(event.target).forEach(key => {
             if(event.target[key].checked === true) {
@@ -540,12 +99,18 @@ window.addEventListener('load', _ => {
             }
         });
 
+        // Close the filters dropdown after form has been submitted.
         const filter_dropdown = document.querySelector('#filter-dropdown')
         let bootstrap_dropdown = new bootstrap.Dropdown(filter_dropdown);
         bootstrap_dropdown.hide();
 
+        // Update the global filters variable with the ones which are selected by user.
         filters = selected_filters;
+
+        // The selected filters are also displayed as Badges. Update that section.
         updateSelectedFiltersChips(selected_filters);
+
+        // Call function to update the UI for food items section.
         updateFoodCourses();
     });
 
@@ -558,17 +123,25 @@ window.addEventListener('load', _ => {
         heading is visible.
     */
     document.querySelectorAll('.menu-course-name').forEach(link => {
+        // When links in the menu section is clicked, perform a custom function.
         link.addEventListener('click', event => {
             // Prevent the default scroll behavior.
             event.preventDefault();
 
-            // Get the target scroll section and set offset
+            // Get the target scroll section.
             const target_section = document.querySelector(`${event?.target?.hash}`);
+            /*
+                The controls section contains filters and search. This section occupies a certain
+                amount of space on the screen. We need to consider this section when scrolling so
+                that the scroll amount is adjusted accordingly. Hence, we get the height of this
+                section and add that to the offset amount so that the headers of each section does
+                not get hidden.
+            */
             const controls_section = document.querySelector('#controls');
             const height_of_controls = controls_section.getBoundingClientRect().height;
             const offset = height_of_controls + 10;
 
-            // Scroll to the desired section
+            // Perform a smooth scroll to the desired section.
             window.scrollTo({
                 top: target_section.offsetTop - offset,
                 behavior: 'smooth'
@@ -577,12 +150,28 @@ window.addEventListener('load', _ => {
     });
 })
 
+/*
+    This function is called whenever a filter is changed, or a search string value is changed.
+    It resets the staging_menu variable so that it contains the entire menu. Then it applies
+    whatever filter and search values are selected at the time when this function is called.
+    Finally when the menu items for display are modified according to need, it checks for each section
+    if sort is selected for that section. If no sort is selected, it calls the 'showFoodContent'
+    function for rendering the UI. If sort is selected, then based on the type of sort of selected,
+    it calls the respective sort functions defined later in this file.
+
+    Function Inputs: None
+    Function Returns: None
+*/
 function updateFoodCourses() {
+    // Initialize the staging_menu with the original unfiltered data.
     staging_menu = menu;
 
+    // Apply filters on the data.
     showFilteredContent(filters);
+    // Apply search on the data.
     showSearchedContent(search_string);
 
+    // Either display data if no sort is chosen, or call appropriate sort functions.
     FOOD_SECTIONS.forEach(section => {
         if(sort_order[section] === 'none') {
             showFoodContent(staging_menu, false, section);
@@ -596,9 +185,17 @@ function updateFoodCourses() {
     })
 }
 
-// Shows the menu contents
+/*
+    This function renders the UI for menu section.
+
+    Function Inputs: None
+    Function Returns: None
+*/
 function showMenuItems() {
+    // Get the section where the menu items need to be rendered.
     const menu_items_container = document.querySelector('#menu-items');
+
+    // Map over each section and render the name and description of the sections.
     menu_items_container.innerHTML = `
     ${FOOD_SECTIONS.map(section => {
         return `
@@ -616,8 +213,34 @@ function showMenuItems() {
     `;
 }
 
-// Display the food sections one after another
+/*
+    This function renders the UI for the food sections. It renders the headers, the dropdown
+    for sorting each section, and the food items.
+
+    Function Inputs:
+    1. food_menu: The food menu to display in the UI. The structure of this object is the same as
+            the one defined in RestaurantMenu.js file. But this data contains all the filters
+            applied to it as it is the final menu to be displayed.
+    2. render_section_headers: This is a flag variable which specifies whether the headers of
+            each section (including the sort dropdown) will be rendered or not. Accepted values
+            are true and false. If this is true, then all the sections are rendered. If this is false,
+            then only the food items in the section passed in 'render_section' is rendered.
+    3. render_section: If 'render_section_headers' is set to true, then only the food items in the
+            section name passed in this parameter will be rendered. No change is made to other sections
+            or even the header of this section. If 'render_section_headers' is false, then this
+            parameter is ignored.
+    
+    Function Returns: None
+*/
 function showFoodContent(food_menu, render_section_headers, render_section = null) {
+    /*
+        This function renders only the header and sort dropdown of a section.
+
+        Function Inputs:
+        1. section: Name of the section to render.
+
+        Function Returns: HTML of the rendered section header.
+    */
     const showSectionHeaders = section => {
         return `
         <div class="section-header mb-2 d-flex justify-content-between">
@@ -637,6 +260,14 @@ function showFoodContent(food_menu, render_section_headers, render_section = nul
         `;
     };
 
+    /*
+        This function renders only the food items section (excluding the headers section).
+
+        Function Inputs:
+        1. section: Name of the section whose food items need to be rendered.
+
+        Function Returns: HTML of the rendered food items section.
+    */
     const showSectionData = section => {
         return `
         <div class="row gx-2 gy-3">
@@ -651,6 +282,10 @@ function showFoodContent(food_menu, render_section_headers, render_section = nul
         `;
     }
 
+    /*
+        If render_section_headers flag is true, then iterate over all sections and render both the
+        header and food items sections.
+    */
     if(render_section_headers === true) {
         const food_sections_holder = document.querySelector('#food-courses');
         food_sections_holder.innerHTML = FOOD_SECTIONS.map(section => {
@@ -666,7 +301,10 @@ function showFoodContent(food_menu, render_section_headers, render_section = nul
             }`
         }).join('\n');
     }
+
+    // If flag is set to false, then render only the section provided in the input parameter.
     else {
+        // If no food items are available to display in the section, then hide the sort dropdown.
         const sort_dropdown = document.querySelector(`#sort-dropdown-${render_section}`);
         if(food_menu[render_section].length !== 0) {
             sort_dropdown.classList.remove('no-show');
@@ -676,6 +314,12 @@ function showFoodContent(food_menu, render_section_headers, render_section = nul
             sort_dropdown.classList.remove('show');
             sort_dropdown.classList.add('no-show');
         }
+
+        /*
+            In the food items section, display the food items by selecting from the menu items
+            provided in params. If food items are present, then display them. If no food items
+            are present, then display an appropriate message.
+        */
         const food_section_holder = document.querySelector(`#food-section-${render_section}`);
         food_section_holder.innerHTML = `
         ${food_menu[render_section].length !== 0 ?
@@ -691,7 +335,15 @@ function showFoodContent(food_menu, render_section_headers, render_section = nul
     }
 }
 
-// Function filters food items from menu based on tags provided as a list
+/*
+    This function filters the menu based on the filter values selected by user. For each food item,
+    if the filters list contains any of the filters entered by user, then that card is chosed.
+
+    Function Inputs:
+    1. filtered_list: List containing the filters selected by user.
+
+    Function Returns: None
+*/
 function showFilteredContent(filtered_list) {
     if(filtered_list.length !== 0) {
         let filter_menu = {};
@@ -707,6 +359,15 @@ function showFilteredContent(filtered_list) {
     }
 }
 
+/*
+    This function applies the search string entered by user. For each food item, if the name of
+    the item contains the search word, then that item is selected and displayed.
+
+    Function Inputs:
+    1. search_string: Search string entered by user.
+
+    Function Returns: None
+*/
 function showSearchedContent(search_string) {
     if(search_string !== '') {
         let search_menu = {};
@@ -720,9 +381,22 @@ function showSearchedContent(search_string) {
     }
 }
 
-// Setup the items which are shown in the dropdown for filter
+/*
+    This function renders the items which are shown in the dropdown for filter.
+
+    Function Inputs: None
+    Function Returns: None
+*/
 function updateFilterDropdownItems() {
+    // Get the section where the dropdown menu items need to be rendered.
     const filter_dropdown_menu = document.querySelector('#filter-dropdown-menu');
+
+    /*
+        Get all the filter values from each of the food items and add them to a Set collection.
+        Multiple food items can have the same filter value. Adding all the values to a set
+        ensures that only one instance of a particular filter value is maintained and duplicates
+        are automatically removed.
+    */
     let unique_filters = new Set();
     FOOD_SECTIONS.forEach(food_section => {
         menu[food_section].forEach(menu_item => {
@@ -730,8 +404,10 @@ function updateFilterDropdownItems() {
         });
     })
     
+    // Convert the Set collection to a list (or array) so that it can e iterated and rendered.
     let list_unique_filters = Array.from(unique_filters);
 
+    // Render the filter elements in the dropdown menu.
     filter_dropdown_menu.innerHTML = `
         <h6 class="dropdown-header">Choose food categories</h6>
         ${list_unique_filters.map(filter => {
@@ -745,6 +421,14 @@ function updateFilterDropdownItems() {
     `
 }
 
+/*
+    This function renders the filters selected as Badges.
+
+    Function Inputs:
+    1. selected_filters: Filters which are selected by user as a list.
+
+    Function Returns: None
+*/
 function updateSelectedFiltersChips(selected_filters) {
     const filters_container = document.querySelector('#selected-filters');
     filters_container.innerHTML = `
@@ -754,20 +438,54 @@ function updateSelectedFiltersChips(selected_filters) {
     `;
 }
 
-// Function sorts food items from price low to high
+/*
+    Function sorts food items from price low to high for a particular section.
+
+    Function Inputs:
+    1. section: Name of the section for which sort needs to be performed.
+
+    Function Returns: None
+*/
 function sortPriceLowToHigh(section) {
+    // Set the sort order for the respective section in the global variable.
     sort_order[section] = 'ascending';
+
+    /*
+        Highlight sort button in the dropdown. This is to indicate user whether sort is enabled
+        and if so, in what in what order sorting is enabled.
+    */
     document.querySelector(`#sort_ascending_${section}`).classList.add('sort-selected');
     document.querySelector(`#sort_descending_${section}`).classList.remove('sort-selected');
+
+    // Sort the food items according to price for the provided section.
     staging_menu[section] = staging_menu[section].toSorted((element1, element2) => element1.price - element2.price)
+
+    // Update the UI.
     showFoodContent(staging_menu, false, section);
 }
 
-// Function sorts food items from price high to low
+/*
+    Function sorts food items from price high to low for a particular section.
+
+    Function Inputs:
+    1. section: Name of the section for which sort needs to be performed.
+
+    Function Returns: None
+*/
 function sortPriceHighToLow(section) {
+    // Set the sort order for the respective section in the global variable.
     sort_order[section] = 'descending';
+
+    /*
+        Highlight sort button in the dropdown. This is to indicate user whether sort is enabled
+        and if so, in what in what order sorting is enabled.
+    */
     document.querySelector(`#sort_descending_${section}`).classList.add('sort-selected');
     document.querySelector(`#sort_ascending_${section}`).classList.remove('sort-selected');
+
+    // Sort the food items according to price for the provided section.
     staging_menu[section] = staging_menu[section].toSorted((element1, element2) => element2.price - element1.price)
+
+    // Update the UI.
     showFoodContent(staging_menu, false, section);
 }
