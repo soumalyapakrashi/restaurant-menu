@@ -602,9 +602,14 @@ function showMenuItems() {
     menu_items_container.innerHTML = `
     ${FOOD_SECTIONS.map(section => {
         return `
-        <div class="mb-4">
-            <a href="#${section}" class="menu-course-name">${section.replace('-', ' ')}</a>
-            <p class="fraunces-p menu-desc">${FOOD_SECTION_DESC[section]}</p>
+        <div class="mb-4 row">
+            <div class="col-sm-1">
+                <img src="assets/img/${section}.png" alt="${section}" class="menu-item-img">
+            </div>
+            <div class="col">
+                <a href="#${section}" class="menu-course-name card-title">${section.replace('-', ' ')}</a>
+                <p class="fraunces-p menu-desc">${FOOD_SECTION_DESC[section]}</p>
+            </div>
         </div>
         `
     }).join('\n')}
@@ -615,22 +620,17 @@ function showMenuItems() {
 function showFoodContent(food_menu, render_section_headers, render_section = null) {
     const showSectionHeaders = section => {
         return `
-        <div class="section-header mb-3 d-flex justify-content-between">
-            <div class="section-header-text">
-                <h2 class="section-header" id="${section}">
-                    ${section.replace('-', ' ')}
-                </h2>
-                <h2 class="section-header">
-                    <img src="assets/img/${section}.png" alt="${section} image" class="food-course-img">
-                </h2>
-            </div>
-            <div class="dropdown mb-4 align-self-end" id="sort-dropdown-${section}">
-                <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+        <div class="section-header mb-2 d-flex justify-content-between">
+            <h2 class="section-header" id="${section}">
+                ${section.replace('-', ' ')}
+            </h2>
+            <div class="dropdown mb-2 align-self-end" id="sort-dropdown-${section}">
+                <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
                     <img src="assets/svg/sort-by.svg" alt="Sort Button" class="sort-icon">
                 </button>
                 <ul class="dropdown-menu">
-                    <li><button class="dropdown-item sort-button-low-high btn" type="button" id="sort_ascending_${section}">By Price: Low to High</button></li>
-                    <li><button class="dropdown-item sort-button-high-low btn" type="button" id="sort_descending_${section}">By Price: High to Low</button></li>
+                    <li><button class="dropdown-item sort-button-low-high btn btn-sm" type="button" id="sort_ascending_${section}">By Price: Low to High</button></li>
+                    <li><button class="dropdown-item sort-button-high-low btn btn-sm" type="button" id="sort_descending_${section}">By Price: High to Low</button></li>
                 </ul>
             </div>
         </div>
@@ -639,10 +639,10 @@ function showFoodContent(food_menu, render_section_headers, render_section = nul
 
     const showSectionData = section => {
         return `
-        <div class="row gx-10 gy-4">
+        <div class="row gx-2 gy-3">
             ${food_menu[section].map(food_item => {
                 return `
-                <div class="col-xs col-sm-6 col-lg-4">
+                <div class="col-xs col-sm-6 col-lg-3">
                     ${FoodCard(food_item.name, food_item.description, food_item.img, food_item.filters, food_item.price)}
                 </div>
                 `;
@@ -656,7 +656,7 @@ function showFoodContent(food_menu, render_section_headers, render_section = nul
         food_sections_holder.innerHTML = FOOD_SECTIONS.map(section => {
             return `
             ${food_menu[section].length !== 0 ?
-                `<div class="food-course mb-5 more-padding">
+                `<div class="food-course mb-4 more-padding">
                     ${showSectionHeaders(section)}
                     <div id="food-section-${section}">
                         ${showSectionData(section)}
@@ -680,7 +680,12 @@ function showFoodContent(food_menu, render_section_headers, render_section = nul
         food_section_holder.innerHTML = `
         ${food_menu[render_section].length !== 0 ?
             showSectionData(render_section)
-        : '<p class="fraunces-p ms-2">No Items</p>'
+        : `
+        <div class="d-flex align-items-center">
+            <p class="fraunces-p no-items-text">No Items</p>
+            <img src="assets/svg/sad.svg" alt="no-items-found" class="no-items-svg">
+        </div>
+        `
         }
         `;
     }
@@ -744,7 +749,7 @@ function updateSelectedFiltersChips(selected_filters) {
     const filters_container = document.querySelector('#selected-filters');
     filters_container.innerHTML = `
     ${selected_filters.map(filter_tag => {
-        return `<span class="badge rounded-pill text-bg-dark">${filter_tag}</span>`
+        return `<span class="badge rounded-pill text-bg-dark fraunces-p">${filter_tag}</span>`
     }).join('\n')}
     `;
 }
