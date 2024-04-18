@@ -564,6 +564,33 @@ window.addEventListener('load', _ => {
         updateSelectedFiltersChips(selected_filters);
         showFilteredContent(selected_filters);
     });
+
+    /*
+        The anchor tags by default, provide a smooth scroll to the different sections of food
+        in the webpage. The scrolled section is positioned from the top of the screen. But as we
+        have a fixed top bar showing the filters and search, the heading of each section is getting
+        blocked after the scroll is taking effect. So we need to offset the position of the
+        new section after it has been scrolled to by the default value + some delta so that the
+        heading is visible.
+    */
+    document.querySelectorAll('.menu-course-name').forEach(link => {
+        link.addEventListener('click', event => {
+            // Prevent the default scroll behavior.
+            event.preventDefault();
+
+            // Get the target scroll section and set offset
+            const target_section = document.querySelector(`${event?.target?.hash}`);
+            const controls_section = document.querySelector('#controls');
+            const height_of_controls = controls_section.getBoundingClientRect().height;
+            const offset = height_of_controls + 10;
+
+            // Scroll to the desired section
+            window.scrollTo({
+                top: target_section.offsetTop - offset,
+                behavior: 'smooth'
+            });
+        });
+    });
 })
 
 // Shows the menu contents
