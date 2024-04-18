@@ -650,10 +650,9 @@ function showFoodContent(food_menu, render_section_headers, render_section = nul
         food_section_holder.innerHTML = `
         ${food_menu[render_section].length !== 0 ?
             showSectionData(render_section)
-        : '<p class="fraunces-p">No Items</p>'
+        : '<p class="fraunces-p ms-2">No Items</p>'
         }
         `;
-
     }
 }
 
