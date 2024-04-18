@@ -497,6 +497,12 @@ const menu = {
 
 let staging_menu = menu;
 let filters = [];
+let sort_order = {
+    'Drinks': 'none',
+    'Starters': 'none',
+    'Main-Course': 'none',
+    'Desserts': 'none'
+};
 
 window.addEventListener('load', _ => {
     showMenuItems();
@@ -691,8 +697,17 @@ function showFilteredContent(filtered_list) {
         document.querySelector('#food-search input').value = '';
 
         staging_menu = menu;
+        
         FOOD_SECTIONS.forEach(section => {
-            showFoodContent(menu, false, section);
+            if(sort_order[section] === 'none') {
+                showFoodContent(menu, false, section);
+            }
+            else if(sort_order[section] === 'ascending') {
+                sortPriceLowToHigh(section);
+            }
+            else if(sort_order[section] === 'descending') {
+                sortPriceHighToLow(section);
+            }
         })
     }
     else {
@@ -767,6 +782,7 @@ function updateSelectedFiltersChips(selected_filters) {
 
 // Function sorts food items from price low to high
 function sortPriceLowToHigh(section) {
+    sort_order[section] = 'ascending';
     document.querySelector(`#sort_ascending_${section}`).classList.add('sort-selected');
     document.querySelector(`#sort_descending_${section}`).classList.remove('sort-selected');
     staging_menu[section] = staging_menu[section].toSorted((element1, element2) => element1.price - element2.price)
@@ -775,6 +791,7 @@ function sortPriceLowToHigh(section) {
 
 // Function sorts food items from price high to low
 function sortPriceHighToLow(section) {
+    sort_order[section] = 'descending';
     document.querySelector(`#sort_descending_${section}`).classList.add('sort-selected');
     document.querySelector(`#sort_ascending_${section}`).classList.remove('sort-selected');
     staging_menu[section] = staging_menu[section].toSorted((element1, element2) => element2.price - element1.price)
