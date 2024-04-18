@@ -152,10 +152,12 @@ input[type="search"],
 
 #header p {
     font-size: 1rem;
+    cursor: default;
 }
 
 #header h2 {
     font-size: 2rem;
+    cursor: default;
 }
 
 .sort-selected {

@@ -497,6 +497,7 @@ const menu = {
 
 let staging_menu = menu;
 let filters = [];
+let search_string = '';
 let sort_order = {
     'Drinks': 'none',
     'Starters': 'none',
@@ -508,21 +509,6 @@ window.addEventListener('load', _ => {
     showMenuItems();
     showFoodContent(menu, true);
 
-    // // Add event listeners for sort button for each section (price low to high)
-    // document.querySelectorAll('.sort-button-low-high').forEach(element => {
-    //     element.addEventListener('click', _ => {
-    //         console.log('Sort Low to High');
-    //         sortPriceLowToHigh(element.id.split('_')[2]);
-    //     });
-    // });
-
-    // // Add event listeners for sort button for each section (price low to high)
-    // document.querySelectorAll('.sort-button-high-low').forEach(element => {
-    //     element.addEventListener('click', _ => {
-    //         console.log('Sort High to Low');
-    //         sortPriceHighToLow(element.id.split('_')[2]);
-    //     });
-    // });
     FOOD_SECTIONS.forEach(section => {
         document.querySelector(`#sort_ascending_${section}`)?.addEventListener('click', _ => {
             sortPriceLowToHigh(section);
@@ -532,20 +518,12 @@ window.addEventListener('load', _ => {
         });
     })
 
-    // document.querySelector('#sort_ascending_Starters').addEventListener('click', event => {
-    //     console.log(event);
-    //     sortPriceLowToHigh('Starters');
-    // });
-    // document.querySelector('#sort_descending_Starters').addEventListener('click', event => {
-    //     console.log(event);
-    //     sortPriceHighToLow('Starters');
-    // });
-
     // Get the handler to the form for the search and call function with entered string
     const search_form = document.querySelector('#food-search');
     search_form.addEventListener('submit', event => {
         event.preventDefault();
-        showSearchedContent(event?.target?.search?.value);
+        search_string = event?.target?.search?.value;
+        updateFoodCourses();
     });
 
     // Populate the dropdown list for filters
@@ -568,7 +546,7 @@ window.addEventListener('load', _ => {
 
         filters = selected_filters;
         updateSelectedFiltersChips(selected_filters);
-        showFilteredContent(selected_filters);
+        updateFoodCourses();
     });
 
     /*
@@ -598,6 +576,25 @@ window.addEventListener('load', _ => {
         });
     });
 })
+
+function updateFoodCourses() {
+    staging_menu = menu;
+
+    showFilteredContent(filters);
+    showSearchedContent(search_string);
+
+    FOOD_SECTIONS.forEach(section => {
+        if(sort_order[section] === 'none') {
+            showFoodContent(staging_menu, false, section);
+        }
+        else if(sort_order[section] === 'ascending') {
+            sortPriceLowToHigh(section);
+        }
+        else if(sort_order[section] === 'descending') {
+            sortPriceHighToLow(section);
+        }
+    })
+}
 
 // Shows the menu contents
 function showMenuItems() {
@@ -691,29 +688,10 @@ function showFoodContent(food_menu, render_section_headers, render_section = nul
 
 // Function filters food items from menu based on tags provided as a list
 function showFilteredContent(filtered_list) {
-    if(filtered_list.length === 0) {
-        // While clearing out filter, if search box has some text, clear it out. After clearing
-        // a filter, we will display all items present in the menu.
-        document.querySelector('#food-search input').value = '';
-
-        staging_menu = menu;
-        
-        FOOD_SECTIONS.forEach(section => {
-            if(sort_order[section] === 'none') {
-                showFoodContent(menu, false, section);
-            }
-            else if(sort_order[section] === 'ascending') {
-                sortPriceLowToHigh(section);
-            }
-            else if(sort_order[section] === 'descending') {
-                sortPriceHighToLow(section);
-            }
-        })
-    }
-    else {
+    if(filtered_list.length !== 0) {
         let filter_menu = {};
         FOOD_SECTIONS.forEach(section => {
-            filter_menu[section] = menu[section].filter(menu_item => {
+            filter_menu[section] = staging_menu[section].filter(menu_item => {
                 return filtered_list.some(chosen => {
                     return menu_item.filters.includes(chosen);
                 })
@@ -721,17 +699,11 @@ function showFilteredContent(filtered_list) {
         });
     
         staging_menu = filter_menu;
-        FOOD_SECTIONS.forEach(section => {
-            showFoodContent(staging_menu, false, section);
-        })
     }
 }
 
 function showSearchedContent(search_string) {
-    if(search_string === '') {
-        showFilteredContent(filters);
-    }
-    else {
+    if(search_string !== '') {
         let search_menu = {};
         FOOD_SECTIONS.forEach(section => {
             search_menu[section] = staging_menu[section].filter(menu_item => {
@@ -740,9 +712,6 @@ function showSearchedContent(search_string) {
         });
 
         staging_menu = search_menu;
-        FOOD_SECTIONS.forEach(section => {
-            showFoodContent(staging_menu, false, section);
-        })
     }
 }
 
