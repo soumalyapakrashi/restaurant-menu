@@ -54,7 +54,7 @@ window.addEventListener('load', _ => {
         by Price. Sorting is available in increasing and decreasing order of price. Each of the options
         is a Button element, clicking which, the sort happens. In this section, we attach the event
         handlers to those buttons in each of the food sections. For the buttons performing sort in
-        incresing order of price, we call the sortPriceLowToHigh function, and for the one performing
+        increasing order of price, we call the sortPriceLowToHigh function, and for the one performing
         sort in decreasing order of price, we call the sortPriceHighToLow function.
     */
     FOOD_SECTIONS.forEach(section => {
