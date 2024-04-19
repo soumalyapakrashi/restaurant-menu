@@ -1,4 +1,8 @@
+[![pages-build-deployment](https://github.com/soumalyapakrashi/restaurant-menu/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/soumalyapakrashi/restaurant-menu/actions/workflows/pages/pages-build-deployment)
+
 # Restaurant Menu
+
+**Live Site Link:** https://soumalyapakrashi.github.io/restaurant-menu/ 
 
 ## Contents
 
