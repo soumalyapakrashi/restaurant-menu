@@ -44,6 +44,9 @@ let sort_order = {
 
 // Display UI and attach event handlers on window load.
 window.addEventListener('load', _ => {
+    document.querySelector('main').classList.add('no-show');
+    document.querySelector('main').classList.remove('show');
+
     // Show the menu items.
     showMenuItems();
     // Show the food items section. Render the entire section including headers as this is the 1st render.
@@ -148,6 +151,9 @@ window.addEventListener('load', _ => {
             });
         });
     });
+
+    document.querySelector('main').classList.remove('no-show');
+    document.querySelector('main').classList.add('show');
 })
 
 /*
