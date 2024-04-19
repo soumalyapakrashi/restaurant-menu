@@ -160,7 +160,7 @@ export const menu = {
             "name": "Flatbreads with brunch-style eggs",
             "description": "Some flatbreads served alongside brunch-style eggs with cheese and tomatoes.",
             "img": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/flatbreads-with-brunch-style-eggs-54092f0.jpg?quality=90&webp=true&resize=375,341",
-            "filters": [ "vegetarian" ],
+            "filters": [],
                 "nutrition": {
                 "kcal": 349,
                 "fat": 21,
