@@ -98,5 +98,5 @@ git clone https://github.com/soumalyapakrashi/restaurant-menu.git
 ## References
 
 1. UI Kit: [Bootstrap 5](https://getbootstrap.com/)
-2. Icon SVGs from [SVGRepo](https://www.svgrepo.com/).
+2. Icon SVGs from [SVGRepo](https://www.svgrepo.com/) and [FlatIcon](https://www.flaticon.com/).
 3. Food data and details from [BBC Good Food](https://www.bbcgoodfood.com/).
